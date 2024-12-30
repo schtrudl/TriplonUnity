@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Trail : MonoBehaviour
@@ -12,47 +14,49 @@ public class Trail : MonoBehaviour
     private GameObject _upR;
     [SerializeField]
     private GameObject _downR;
-    [SerializeField]
-    private GameObject _colliders;
 
     private Mesh _mesh;
-    private Vector3[] _vertices;
-    private int[] _triangles;
+    private List<Vector3> _vertices;
+    private List<int> _triangles;
     private int _vertexCount;
     private int _trianglesCount;    
     private Vector3 _previusUpL;
     private Vector3 _previusUpR;
 
-    private const int NUM_VERTICES = 100000;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _vertices = new Vector3[NUM_VERTICES];
-        _triangles = new int[((_vertices.Length - 4) * 2 + 2) * 3]; // 4 tocke = 2, 8 tock = 10, 12 tock = 18, 16 tock = 26, x tock = (x-4)*2 + 2
 
-        _vertices[0] = _upL.transform.position;
-        _vertices[1] = _downL.transform.position;
-        _vertices[2] = _upR.transform.position;
-        _vertices[3] = _downR.transform.position;
+        _vertices = new List<Vector3>();
+        _triangles = new List<int>();
+
+        _vertices.Add(_upL.transform.position);
+        _vertices.Add(_downL.transform.position);
+        _vertices.Add(_upR.transform.position);
+        _vertices.Add(_downR.transform.position);
+        _triangles.Add(0);
+        _triangles.Add(3);
+        _triangles.Add(1);
+        _triangles.Add(0);
+        _triangles.Add(2);
+        _triangles.Add(3);
+        _triangles.Add(3);
+        _triangles.Add(2);
+        _triangles.Add(1);
+        _triangles.Add(2);
+        _triangles.Add(0);
+        _triangles.Add(1);
+        _trianglesCount = 12;
         _vertexCount = 4;
+
         _previusUpL = _upL.transform.position;
         _previusUpR = _upR.transform.position;
-
-        _triangles[0] = 0;
-        _triangles[1] = 1;
-        _triangles[2] = 2;
-        _triangles[3] = 1;
-        _triangles[4] = 2;
-        _triangles[5] = 3;
-        _trianglesCount = 6;
 
         _mesh = new Mesh();
         _trailMesh.GetComponent<MeshFilter>().mesh = _mesh;
 
         UpdateMesh();
-        CreateBoxCollider(0, 4);
     }
 
     // Update is called once per frame
@@ -63,71 +67,95 @@ public class Trail : MonoBehaviour
         {
             return;
         }
-        
 
-        _vertices[_vertexCount] = _upL.transform.position;
-        _vertices[_vertexCount + 1] = _downL.transform.position;
-        _vertices[_vertexCount + 2] = _upR.transform.position;
-        _vertices[_vertexCount + 3] = _downR.transform.position;
+        _vertices.Add(_upL.transform.position);
+        _vertices.Add(_downL.transform.position);
+        _vertices.Add(_upR.transform.position);
+        _vertices.Add(_downR.transform.position);
+
         _vertexCount += 4;
         _previusUpL = _upL.transform.position;
         _previusUpR = _upR.transform.position;
 
-        _triangles[_trianglesCount] = _vertexCount - 8;
-        _triangles[_trianglesCount + 1] = _vertexCount - 7;
-        _triangles[_trianglesCount + 2] = _vertexCount - 4;
-        _triangles[_trianglesCount + 3] = _vertexCount - 7;
-        _triangles[_trianglesCount + 4] = _vertexCount - 4;
-        _triangles[_trianglesCount + 5] = _vertexCount - 3;
-        _triangles[_trianglesCount + 6] = _vertexCount - 8;
-        _triangles[_trianglesCount + 7] = _vertexCount - 6;
-        _triangles[_trianglesCount + 8] = _vertexCount - 4;
-        _triangles[_trianglesCount + 9] = _vertexCount - 6;
-        _triangles[_trianglesCount + 10] = _vertexCount - 4;
-        _triangles[_trianglesCount + 11] = _vertexCount - 2;
-        _triangles[_trianglesCount + 12] = _vertexCount - 6;
-        _triangles[_trianglesCount + 13] = _vertexCount - 5;
-        _triangles[_trianglesCount + 14] = _vertexCount - 2;
-        _triangles[_trianglesCount + 15] = _vertexCount - 5;
-        _triangles[_trianglesCount + 16] = _vertexCount - 2;
-        _triangles[_trianglesCount + 17] = _vertexCount - 1;
-        _triangles[_trianglesCount + 18] = _vertexCount - 7;
-        _triangles[_trianglesCount + 19] = _vertexCount - 5;
-        _triangles[_trianglesCount + 20] = _vertexCount - 3;
-        _triangles[_trianglesCount + 21] = _vertexCount - 5;
-        _triangles[_trianglesCount + 22] = _vertexCount - 3;
-        _triangles[_trianglesCount + 23] = _vertexCount - 1;
+        // Define triangles with counter-clockwise (CCW) winding order
+        _triangles.Add(_vertexCount - 8); // First triangle
+        _triangles.Add(_vertexCount - 7);
+        _triangles.Add(_vertexCount - 3);
+
+        _triangles.Add(_vertexCount - 8); // Second triangle
+        _triangles.Add(_vertexCount - 3);
+        _triangles.Add(_vertexCount - 4);
+
+        _triangles.Add(_vertexCount - 6); // Third triangle
+        _triangles.Add(_vertexCount - 8);
+        _triangles.Add(_vertexCount - 4);
+
+        _triangles.Add(_vertexCount - 6); // Fourth triangle
+        _triangles.Add(_vertexCount - 4);
+        _triangles.Add(_vertexCount - 2);
+
+        _triangles.Add(_vertexCount - 5); // Fifth triangle
+        _triangles.Add(_vertexCount - 6);
+        _triangles.Add(_vertexCount - 2);
+
+        _triangles.Add(_vertexCount - 5); // Sixth triangle
+        _triangles.Add(_vertexCount - 2);
+        _triangles.Add(_vertexCount - 1);
+
+        _triangles.Add(_vertexCount - 7); // Seventh triangle
+        _triangles.Add(_vertexCount - 5);
+        _triangles.Add(_vertexCount - 1);
+
+        _triangles.Add(_vertexCount - 7); // Eighth triangle
+        _triangles.Add(_vertexCount - 1);
+        _triangles.Add(_vertexCount - 3);
+
+        //move the last face to new location
+        _triangles[6] += 4;
+        _triangles[7] += 4;
+        _triangles[8] += 4;
+        _triangles[9] += 4;
+        _triangles[10] += 4;
+        _triangles[11] += 4;
+
         _trianglesCount += 24;
 
         UpdateMesh();
-        CreateBoxCollider(_vertexCount - 8, 8);
+        CreateBoxCollider(_vertexCount - 8);
     }
 
     void UpdateMesh()
     {
         _mesh.Clear();
-        _mesh.vertices = _vertices;
-        _mesh.triangles = _triangles;
+        _mesh.vertices = _vertices.ToArray();
+        _mesh.triangles = _triangles.ToArray();
     }
 
-    void CreateBoxCollider(int startIndex, int numVertices)
+    void CreateBoxCollider(int startIndex)
     {
-        if (startIndex < 0 || startIndex + numVertices > _vertexCount) return;
+        if (startIndex < 0 || startIndex + 8 > _vertexCount) return;
 
         // Calculate the bounds for the BoxCollider
         Vector3 min = _vertices[startIndex];
         Vector3 max = _vertices[startIndex];
 
-        for (int i = startIndex; i < startIndex + numVertices; i++)
+        for (int i = startIndex; i < startIndex + 8; i++)
         {
             min = Vector3.Min(min, _vertices[i]);
             max = Vector3.Max(max, _vertices[i]);
         }
 
-        // Configure the BoxCollider
-        BoxCollider boxCollider = _colliders.AddComponent<BoxCollider>();
+        // Create an empty GameObject as a child of _trailMesh
+        GameObject colliderObject = new GameObject("BoxCollider_" + startIndex / 4);
+        colliderObject.transform.SetParent(_trailMesh.transform);
+        colliderObject.transform.localPosition = Vector3.zero; // Keep local position at origin
+
+        // Configure the BoxCollider for this new child
+        BoxCollider boxCollider = colliderObject.AddComponent<BoxCollider>();
         boxCollider.center = (min + max) / 2f;
         boxCollider.size = max - min;
         boxCollider.isTrigger = true;
+        boxCollider.AddComponent<Crash>();
     }
+
 }
