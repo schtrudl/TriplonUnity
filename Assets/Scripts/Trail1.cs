@@ -1,8 +1,13 @@
+/*  
+ *  Trail1 deluje na nacin, da se GameObjectu doda mesh, ki se spreminja glede na nove lokacije igralca
+ *  Ob ubeležitvi novih tock, se mesh prepiše z novim, ki vsebuje nove dodatne koordinate, ter doda collider tem temu odseku
+ */
+
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Trail : MonoBehaviour
+public class Trail1 : MonoBehaviour
 {
     [SerializeField]
     private GameObject _trailMesh;
