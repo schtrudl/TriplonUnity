@@ -11,14 +11,19 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = 0f;
+        float horizontalInput = 0f;
+
+        if (Input.GetKey("w")) verticalInput = 1f;
+        if (Input.GetKey("s")) verticalInput = -1f;
+        if (Input.GetKey("a")) horizontalInput = -1f;
+        if (Input.GetKey("d")) horizontalInput = 1f;
 
         Vector3 forwardMovement = transform.right * verticalInput * speed * Time.deltaTime;
         transform.position += forwardMovement;
@@ -27,6 +32,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, rotation, 0);
 
         float targetTilt = -horizontalInput * tiltAngle;
+
         currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSpeed);
 
         Quaternion targetRotation = Quaternion.Euler(currentTilt, transform.eulerAngles.y, transform.eulerAngles.z);
