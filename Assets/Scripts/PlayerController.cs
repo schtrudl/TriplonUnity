@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float turnSpeed = 70f;
     public float tiltAngle = 20f;
     public float tiltSpeed = 1.5f;
+    public float maxRotationSpeed = 70f;
 
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
         // set turning speed based on current speed
         float dynamicTurnSpeed = turnSpeed * (currentSpeed / maxSpeed);
+        dynamicTurnSpeed = Mathf.Clamp(dynamicTurnSpeed, -maxRotationSpeed, maxRotationSpeed);
 
         if (currentSpeed > 0.1f || currentSpeed < 0.1f)
         {
