@@ -32,7 +32,8 @@ Material:
     - _EnvironmentReflections: 0
     - _ReceiveShadows: 1
     - _SpecularHighlights: 1
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0.4162765, g: 0.4162765, b: 0.4162765, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4703814294945155241
