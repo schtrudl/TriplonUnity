@@ -29,6 +29,7 @@ public class Trail2 : MonoBehaviour
     private Vector3 _previusDownR;
     private double _dist = 1.2;
     private GameObject _trail;
+    private bool _first = true;
     private Material _material;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,12 +50,12 @@ public class Trail2 : MonoBehaviour
         // Define triangles (counter-clockwise order for each face)
         _triangles = new int[36];
         // Front Face (Closer to Camera)
-        _triangles[0] = 2; _triangles[1] = 0; _triangles[2] = 1; // Triangle 1
-        _triangles[3] = 1; _triangles[4] = 3; _triangles[5] = 2; // Triangle 2
+        //_triangles[0] = 2; _triangles[1] = 0; _triangles[2] = 1; // Triangle 1
+        //_triangles[3] = 1; _triangles[4] = 3; _triangles[5] = 2; // Triangle 2
 
         // Back Face (Further from Camera)
-        _triangles[6] = 7; _triangles[7] = 5; _triangles[8] = 4; // Triangle 1
-        _triangles[9] = 4; _triangles[10] = 6; _triangles[11] = 7; // Triangle 2
+        //_triangles[6] = 7; _triangles[7] = 5; _triangles[8] = 4; // Triangle 1
+        //_triangles[9] = 4; _triangles[10] = 6; _triangles[11] = 7; // Triangle 2
 
         // Left Side (Connect Front and Back on Left)
         _triangles[12] = 6; _triangles[13] = 4; _triangles[14] = 0; // Triangle 1
@@ -111,6 +112,13 @@ public class Trail2 : MonoBehaviour
         _vertices[5] = _upR.transform.position;
         _vertices[6] = _downL.transform.position;
         _vertices[7] = _downR.transform.position;
+
+        if (_first) 
+        {
+            _triangles[0] = 2; _triangles[1] = 0; _triangles[2] = 1; 
+            _triangles[3] = 1; _triangles[4] = 3; _triangles[5] = 2;
+            _first = false;
+        }
 
         // Create a new child object under _trailMesh
         GameObject segmentObject = new GameObject("TrailSegment");
