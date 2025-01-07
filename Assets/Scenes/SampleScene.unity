@@ -843,7 +843,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa75a31514a7ebb4b94a6484f6639b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  maxSpeed: 25
+  acceleration: 0.2
+  deceleration: 3
+  turnSpeed: 70
+  tiltAngle: 20
+  tiltSpeed: 1.5
+  centreOfGravityOffset: -1
 --- !u!4 &694437626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3fa44364d2971104db05187800c9493c, type: 3}
