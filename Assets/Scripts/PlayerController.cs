@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private float defaultTilt = 0f;
     public float centreOfGravityOffset = -1f;
     private Rigidbody rigidBody;
+    private PlayerInput input;
 
     void Start()
     {
@@ -24,17 +26,17 @@ public class PlayerController : MonoBehaviour
 
         // enable interpolation for smoother physics
         rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
+
+        input = GetComponent<PlayerInput>();
     }
 
     void Update()
     {
         float verticalInput = 0f;
         float horizontalInput = 0f;
-
-        if (Input.GetKey("w")) verticalInput = 1f;
-        if (Input.GetKey("s")) verticalInput = -1f;
-        if (Input.GetKey("a")) horizontalInput = -1f;
-        if (Input.GetKey("d")) horizontalInput = 1f;
+        Vector2 invec = input.actions["MOVE"].ReadValue<Vector2>();
+        verticalInput = invec.y;
+        horizontalInput = invec.x;
 
         // acceleration and deceleration
         if (verticalInput != 0)
