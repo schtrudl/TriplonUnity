@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class PlayerController : MonoBehaviour
         rigidBody.interpolation = RigidbodyInterpolation.Interpolate;
 
         input = GetComponent<PlayerInput>();
+        // Input System has trouble using same device for multiple players due to xor acccess
+        // but if we manually bind them it will work
+        // https://discussions.unity.com/t/2-players-on-same-input-device/762490/8
+        InputUser.PerformPairingWithDevice(Keyboard.current, input.user);
+        input.user.ActivateControlScheme(input.defaultControlScheme);
     }
 
     void Update()
