@@ -21,7 +21,7 @@ public class Audio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        /*if (Input.GetKeyDown(KeyCode.I))
         {
             this.BgMusic(true);
         }
@@ -36,7 +36,7 @@ public class Audio : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             this.EndFx();
-        }
+        }*/
     }
 
     /// <summary>
