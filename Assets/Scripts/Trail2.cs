@@ -21,6 +21,8 @@ public class Trail2 : MonoBehaviour
     [SerializeField]
     private GameObject _downR;
 
+    private GameObject endMenu;
+
     private Vector3[] _vertices;
     private int[] _triangles;
     private Vector3 _previusUpL;
@@ -46,6 +48,19 @@ public class Trail2 : MonoBehaviour
         _previusDownR = _downR.transform.position;
         _previusDownL = _downL.transform.position;
 
+        if (endMenu == null)
+        {
+            endMenu = System.Array.Find(Resources.FindObjectsOfTypeAll<GameObject>(), go => go.name == "EndMenu");
+
+            if (endMenu == null)
+            {
+                Debug.LogError("EndMenu GameObject not found! Make sure it exists in the scene.");
+            }
+            else
+            {
+                Debug.Log("EndMenu GameObject found successfully!");
+            }
+        }
 
         // Define triangles (counter-clockwise order for each face)
         _triangles = new int[36];
@@ -130,7 +145,10 @@ public class Trail2 : MonoBehaviour
         // Add a MeshFilter and MeshRenderer
         MeshFilter meshFilter = segmentObject.AddComponent<MeshFilter>();
         MeshRenderer meshRenderer = segmentObject.AddComponent<MeshRenderer>();
-        segmentObject.AddComponent<Crash>();
+        // Add the Crash script and assign EndMenu
+        Crash crashScript = segmentObject.AddComponent<Crash>();
+
+        crashScript.endMenu = endMenu;
 
         // Create and assign the mesh
         Mesh segmentMesh = new Mesh();
