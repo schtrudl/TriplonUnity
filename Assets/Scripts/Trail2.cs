@@ -4,9 +4,7 @@
  *  s tockami in že vnaprej prirpavljenimi indexi, doda se mesh collider, ki se zaradi lepe oblike enostavno pretvori v convex
  */
 
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.LightTransport;
 
 public class Trail2 : MonoBehaviour
 {
