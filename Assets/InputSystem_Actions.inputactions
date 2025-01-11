@@ -240,7 +240,7 @@
                     "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "P2",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -273,7 +273,7 @@
                     "path": "<Keyboard>/numpad0",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";P2",
+                    "groups": "",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

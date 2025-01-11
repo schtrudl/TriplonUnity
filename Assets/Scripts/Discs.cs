@@ -8,8 +8,8 @@ public class Discs : MonoBehaviour
     public int totalCoins = 9; // Number of coins to maintain
     private Vector3 spawnAreaMin = new Vector3(-300, 1, -100); // Minimum spawn position (for x and y)
     private Vector3 spawnAreaMax = new Vector3(300, 1, 100); // Maximum spawn position (for x and y)
-    private float topFloorY = 2; // Fixed Y value for the top floor
-    private float bottomFloorY = -18f; // Fixed Y value for the bottom floor
+    private float topFloorY = 2.5f; // Fixed Y value for the top floor
+    private float bottomFloorY = -17.5f; // Fixed Y value for the bottom floor
 
     private Vector3 discScale = new Vector3(1.3f, 1.3f, 1.3f); // Scale for all coins
 
