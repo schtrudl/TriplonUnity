@@ -386,6 +386,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4851752539873575550}
   m_SourcePrefab: {fileID: 100100000, guid: 3fa44364d2971104db05187800c9493c, type: 3}
+--- !u!1 &873821448413902092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6768691112492411308, guid: 3fa44364d2971104db05187800c9493c, type: 3}
+  m_PrefabInstance: {fileID: 5895026430569864352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2660664457144589190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -782567006355618010, guid: 3fa44364d2971104db05187800c9493c, type: 3}
@@ -443,6 +448,7 @@ MonoBehaviour:
   tiltSpeed: 1.5
   maxRotationSpeed: 70
   centreOfGravityOffset: -1
+  discElement: {fileID: 873821448413902092}
 --- !u!54 &702757144184790491
 Rigidbody:
   m_ObjectHideFlags: 0
