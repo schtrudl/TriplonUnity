@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 0.2f;
     public float deceleration = 3f;
     public float turnSpeed = 70f;
-    public float tiltAngle = 20f;
+    public float tiltAngle = 10f;
     public float tiltSpeed = 1.5f;
     public float maxRotationSpeed = 70f;
 

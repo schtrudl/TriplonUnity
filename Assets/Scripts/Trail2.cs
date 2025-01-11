@@ -4,6 +4,7 @@
  *  s tockami in že vnaprej prirpavljenimi indexi, doda se mesh collider, ki se zaradi lepe oblike enostavno pretvori v convex
  */
 
+using TMPro;
 using UnityEngine;
 
 public class Trail2 : MonoBehaviour
@@ -20,6 +21,7 @@ public class Trail2 : MonoBehaviour
     private GameObject _downR;
 
     private GameObject endMenu;
+    private TextMeshProUGUI reasonText;
 
     private Vector3[] _vertices;
     private int[] _triangles;
@@ -52,12 +54,35 @@ public class Trail2 : MonoBehaviour
 
             if (endMenu == null)
             {
-                Debug.LogError("EndMenu GameObject not found! Make sure it exists in the scene.");
+                Debug.LogError("EndMenu GameObject not found!");
             }
             else
             {
                 Debug.Log("EndMenu GameObject found successfully!");
             }
+        }
+
+        Transform gameOverMenuTransform = endMenu.transform.Find("GameOverMenu");
+        if (gameOverMenuTransform == null)
+        {
+            Debug.LogError("GameOverMenu GameObject is missing inside EndMenu!");
+            return;
+        }
+        // Navigate to Background -> Image -> DeathReason
+        Transform deathReasonTransform = gameOverMenuTransform
+            .Find("Image/DeathReason");
+        if (deathReasonTransform == null)
+        {
+            Debug.LogError("DeathReason GameObject is missing inside GameOverMenu!");
+            return;
+        }
+
+        // Get the TextMeshProUGUI component from DeathReason
+        reasonText = deathReasonTransform.GetComponent<TextMeshProUGUI>();
+        if (reasonText == null)
+        {
+            Debug.LogError("No TextMeshProUGUI component found on DeathReason GameObject!");
+            return;
         }
 
         // Define triangles (counter-clockwise order for each face)
@@ -147,6 +172,7 @@ public class Trail2 : MonoBehaviour
         Crash crashScript = segmentObject.AddComponent<Crash>();
 
         crashScript.endMenu = endMenu;
+        crashScript.reasonText = reasonText;
 
         // Create and assign the mesh
         Mesh segmentMesh = new Mesh();
