@@ -3,19 +3,19 @@ using UnityEngine;
 public class Discs : MonoBehaviour
 {
     [SerializeField]
-    private GameObject discPrefab; // Assign your coin prefab in the Inspector
+    private GameObject discPrefab; // Assign your disc prefab in the Inspector
 
-    public int totalDiscs = 10; // Number of coins to maintain
+    public int totalDiscs = 10; // Number of discs to maintain
     private Vector3 spawnAreaMin = new Vector3(-300, 1, -100); // Minimum spawn position (for x and y)
     private Vector3 spawnAreaMax = new Vector3(300, 1, 100); // Maximum spawn position (for x and y)
     private float topFloorY = 2.5f; // Fixed Y value for the top floor
     private float bottomFloorY = -17.5f; // Fixed Y value for the bottom floor
 
-    private Vector3 discScale = new Vector3(1.3f, 1.3f, 1.3f); // Scale for all coins
+    private Vector3 discScale = new Vector3(1.3f, 1.3f, 1.3f); // Scale for all discs
 
     void Start()
     {
-        // Spawn the initial set of coins as children of CoinManager
+        // Spawn the initial set of discs as children of Discs
         for (int i = 0; i < totalDiscs; i++)
         {
             SpawnDisc();
@@ -24,7 +24,7 @@ public class Discs : MonoBehaviour
 
     void Update()
     {
-        // Check and maintain the total number of coins
+        // Check and maintain the total number of discs
         if (transform.childCount < totalDiscs)
         {
             SpawnDisc();
@@ -40,11 +40,11 @@ public class Discs : MonoBehaviour
 
         Vector3 randomPosition = new Vector3(randomX, randomY, randomZ);
 
-        // Instantiate the coin and set it as a child of the CoinManager
+        // Instantiate the disc and set it as a child of the Discs
         GameObject disc = Instantiate(discPrefab, randomPosition, Quaternion.identity);
-        disc.transform.parent = transform; // Set CoinManager as the parent
+        disc.transform.parent = transform; // Set Discs as the parent
 
-        // Set the coin's scale
+        // Set the disc's scale
         disc.transform.localScale = discScale;
 
         // Add a Sphere Collider to the disc
