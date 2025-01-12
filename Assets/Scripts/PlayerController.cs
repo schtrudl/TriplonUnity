@@ -155,7 +155,6 @@ public class PlayerController : MonoBehaviour
     private bool isStale()
     {
         float d = Vector3.Distance(this.transform.position, this.stalePos);
-        Debug.Log(d);
         // based on our old code: https://github.com/schtrudl/Triplon/blob/main/src/scene/player.js
         if ( d < 1.0 )
         {
