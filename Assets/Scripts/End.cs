@@ -5,6 +5,10 @@ public class End : MonoBehaviour
 {
     public void end(string msg)
     {
+        if (gameObject.activeSelf)
+        {
+            return;
+        }
         gameObject.SetActive(true);
         Transform gameOverMenuTransform = gameObject.transform.Find("GameOverMenu");
         if (gameOverMenuTransform == null)
