@@ -21,9 +21,6 @@ public class Trail2 : MonoBehaviour
     [SerializeField]
     private GameObject _downR;
 
-    private GameObject endMenu;
-    private TextMeshProUGUI reasonText;
-
     private Vector3[] _vertices;
     private int[] _triangles;
     private Vector3 _previusUpL;
@@ -48,43 +45,6 @@ public class Trail2 : MonoBehaviour
         _previusUpR = _upR.transform.position;
         _previusDownR = _downR.transform.position;
         _previusDownL = _downL.transform.position;
-
-        if (endMenu == null)
-        {
-            endMenu = System.Array.Find(Resources.FindObjectsOfTypeAll<GameObject>(), go => go.name == "EndMenu");
-
-            if (endMenu == null)
-            {
-                Debug.LogError("EndMenu GameObject not found!");
-            }
-            else
-            {
-                Debug.Log("EndMenu GameObject found successfully!");
-            }
-        }
-
-        Transform gameOverMenuTransform = endMenu.transform.Find("GameOverMenu");
-        if (gameOverMenuTransform == null)
-        {
-            Debug.LogError("GameOverMenu GameObject is missing inside EndMenu!");
-            return;
-        }
-        // Navigate to Background -> Image -> DeathReason
-        Transform deathReasonTransform = gameOverMenuTransform
-            .Find("Image/DeathReason");
-        if (deathReasonTransform == null)
-        {
-            Debug.LogError("DeathReason GameObject is missing inside GameOverMenu!");
-            return;
-        }
-
-        // Get the TextMeshProUGUI component from DeathReason
-        reasonText = deathReasonTransform.GetComponent<TextMeshProUGUI>();
-        if (reasonText == null)
-        {
-            Debug.LogError("No TextMeshProUGUI component found on DeathReason GameObject!");
-            return;
-        }
 
         // Define triangles (counter-clockwise order for each face)
         _triangles = new int[30];
@@ -163,11 +123,8 @@ public class Trail2 : MonoBehaviour
         // Add a MeshFilter and MeshRenderer
         MeshFilter meshFilter = segmentObject.AddComponent<MeshFilter>();
         MeshRenderer meshRenderer = segmentObject.AddComponent<MeshRenderer>();
-        // Add the Crash script and assign EndMenu
+        // Add the Crash script
         Crash crashScript = segmentObject.AddComponent<Crash>();
-
-        crashScript.endMenu = endMenu;
-        crashScript.reasonText = reasonText;
 
         // Create and assign the mesh
         Mesh segmentMesh = new Mesh();
