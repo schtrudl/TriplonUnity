@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 75426569}
   - component: {fileID: 75426568}
   - component: {fileID: 75426567}
+  - component: {fileID: 75426571}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -410,7 +411,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -464,6 +465,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &75426571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75426566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e5aec166b06c74291287f97b5d72eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 1734104414}
 --- !u!1 &96902597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2317,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   discPrefab: {fileID: 919132149155446097, guid: 84312d7cd98f6694abc69598473aabc2, type: 3}
-  totalCoins: 10
+  totalDiscs: 10
+  spawnAreaMin: {x: -300, y: 1, z: -100}
+  spawnAreaMax: {x: 300, y: 1, z: 100}
+  topFloorY: 2.5
+  bottomFloorY: -17.5
+  discScale: {x: 1.3, y: 1.3, z: 1.3}
 --- !u!4 &990541238
 Transform:
   m_ObjectHideFlags: 0
@@ -4220,6 +4239,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 75426571}
+        m_TargetAssemblyTypeName: StartTime, Assembly-CSharp
+        m_MethodName: Starttime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1734104415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5373,16 +5404,16 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: tiltAngle
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: boostSlider
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: boostSpeedMultiplier
       value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
-      propertyPath: tiltAngle
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2133647154962806280, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: _variant
