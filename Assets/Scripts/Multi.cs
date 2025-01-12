@@ -86,7 +86,9 @@ public class Multi : MonoBehaviour
         {
             player2 = Instantiate(prefab);
             player2.name = prefab.name;
+            player2.AddComponent<BoostBar>();
         }
+        
     }
     private void ResetPlayer2()
     {
