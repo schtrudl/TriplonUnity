@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class OOB : MonoBehaviour
 {
     public GameObject endMenu;
+    public TextMeshProUGUI reasonText;
+
     private void Start()
     {
         if (endMenu == null)
@@ -27,9 +30,10 @@ public class OOB : MonoBehaviour
                 timer.StopTimer();
             }
             GameObject.Find("Audio").GetComponent<Audio>().EndFx();
-            // Pause the game when the menu is shown
-            Time.timeScale = 0; // Pauses the game
+            Time.timeScale = 0;
+            reasonText.text = $"You hit the wall!";
         }
+
         else
         {
             Debug.LogWarning("EndMenu GameObject is not assigned in the Inspector!");

@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class Crash : MonoBehaviour
 {
     public GameObject endMenu;
+    public TextMeshProUGUI reasonText;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name + " crashed into Trail");
@@ -16,8 +19,13 @@ public class Crash : MonoBehaviour
                 timer.StopTimer();
             }
             GameObject.Find("Audio").GetComponent<Audio>().EndFx();
-            // Pause the game when the menu is shown
-            Time.timeScale = 0; // Pauses the game
+
+            Time.timeScale = 0;
+            
+            if (reasonText != null)
+            {
+                reasonText.text = $"You hit the trail!";
+            }
         }
         else
         {
