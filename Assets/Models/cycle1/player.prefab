@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 25
+  boostSpeed: 40
   acceleration: 0.2
   deceleration: 3
   turnSpeed: 70
@@ -449,6 +450,8 @@ MonoBehaviour:
   maxRotationSpeed: 70
   centreOfGravityOffset: -1
   discElement: {fileID: 873821448413902092}
+  boostFullTime: 2
+  boostSpeedAcceleration: 1
 --- !u!54 &702757144184790491
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -488,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cd4d32c2df13448afaf81d29e57944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cycle: {fileID: 6705365751238943217}
+  _variant: {fileID: 0}
   _upL: {fileID: 2820327322664814903}
   _downL: {fileID: 7685298401683291599}
   _upR: {fileID: 6350765553957700573}
@@ -505,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851953df864d06248a4c51b9e5e7ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cycle: {fileID: 6705365751238943217}
+  _variant: {fileID: 0}
   _upL: {fileID: 2820327322664814903}
   _downL: {fileID: 7685298401683291599}
   _upR: {fileID: 6350765553957700573}

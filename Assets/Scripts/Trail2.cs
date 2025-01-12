@@ -197,7 +197,6 @@ public class Trail2 : MonoBehaviour
             List<int> triangleList = new List<int>(_triangles);
 
             // Remove the last (6 triangles)
-            Debug.Log(triangleList.Count);
             triangleList.RemoveRange(triangleList.Count - 6, 6);
 
             // Convert back to an array if needed

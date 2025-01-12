@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.Users;
 public class PlayerController : MonoBehaviour
 {
     public float maxSpeed = 25f;
+    public float boostSpeed = 40f;
     public float acceleration = 0.2f;
     public float deceleration = 3f;
     public float turnSpeed = 70f;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool isBoostActive = false; // Is the boost currently active?
     private float boostRemainingTime = 0f; // Total boost time available
     public float boostFullTime = 2f;
-    public float boostSpeedMultiplier = 1.01f; // Speed multiplier during the boost
+    public float boostSpeedAcceleration = 1f; // Speed multiplier during the boost
 
     void Start()
     {
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
             if (boostRemainingTime > 0f)
             {
                 isBoostActive = true;
-                currentSpeed *= boostSpeedMultiplier;
+                currentSpeed = Mathf.Lerp(currentSpeed, boostSpeed, Time.deltaTime * boostSpeedAcceleration);
                 boostRemainingTime -= Time.deltaTime; // Decrease available boost time
             }
             else
