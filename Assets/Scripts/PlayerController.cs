@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     // Boost-related variables
     private bool isBoostAvailable = false; // Is the boost available (after disc collection)?
     private bool isBoostActive = false; // Is the boost currently active?
-    private float boostRemainingTime = 2f; // Total boost time available
-    private float boostSpeedMultiplier = 1.01f; // Speed multiplier during the boost
+    private float boostRemainingTime = 0f; // Total boost time available
+    public float boostFullTime = 2f;
+    public float boostSpeedMultiplier = 1.01f; // Speed multiplier during the boost
 
     void Start()
     {

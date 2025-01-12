@@ -5,7 +5,7 @@ public class Discs : MonoBehaviour
     [SerializeField]
     private GameObject discPrefab; // Assign your coin prefab in the Inspector
 
-    public int totalCoins = 9; // Number of coins to maintain
+    public int totalDiscs = 10; // Number of coins to maintain
     private Vector3 spawnAreaMin = new Vector3(-300, 1, -100); // Minimum spawn position (for x and y)
     private Vector3 spawnAreaMax = new Vector3(300, 1, 100); // Maximum spawn position (for x and y)
     private float topFloorY = 2.5f; // Fixed Y value for the top floor
@@ -16,22 +16,22 @@ public class Discs : MonoBehaviour
     void Start()
     {
         // Spawn the initial set of coins as children of CoinManager
-        for (int i = 0; i < totalCoins; i++)
+        for (int i = 0; i < totalDiscs; i++)
         {
-            SpawnCoin();
+            SpawnDisc();
         }
     }
 
     void Update()
     {
         // Check and maintain the total number of coins
-        if (transform.childCount < totalCoins)
+        if (transform.childCount < totalDiscs)
         {
-            SpawnCoin();
+            SpawnDisc();
         }
     }
 
-    void SpawnCoin()
+    void SpawnDisc()
     {
         // Generate a random position within the specified range
         float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
