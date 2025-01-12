@@ -76,7 +76,7 @@ public class Trail1 : MonoBehaviour
         //_triangles[30] = 7; _triangles[31] = 5; _triangles[32] = 4; // Triangle 1
         //_triangles[33] = 4; _triangles[34] = 6; _triangles[35] = 7; // Triangle 2
 
-        _material = _variant;
+        _material = new Material(_variant);
         _material.SetFloat("_Surface", 1);
         // Set the render mode to Transparent
         _material.SetFloat("_Mode", 3); // 3 is for Transparent mode in Unity's standard shader

@@ -92,7 +92,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-
         // Apply forward movement
         Vector3 forwardMovement = transform.right * currentSpeed;
         Vector3 velocity = new Vector3(forwardMovement.x, rigidBody.linearVelocity.y, forwardMovement.z);

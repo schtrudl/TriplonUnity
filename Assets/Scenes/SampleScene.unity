@@ -5365,8 +5365,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: boostBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: maxSpeed
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: boostSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: boostSpeedMultiplier
