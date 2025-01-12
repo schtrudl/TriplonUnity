@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
@@ -31,8 +32,11 @@ public class PlayerController : MonoBehaviour
     public float boostFullTime = 2f;
     public float boostSpeedAcceleration = 1f; 
 
+    private End endMenu;
+
     void Start()
     {
+        endMenu = Resources.FindObjectsOfTypeAll<End>()[0];
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
 
@@ -47,10 +51,15 @@ public class PlayerController : MonoBehaviour
         input.user.ActivateControlScheme(input.defaultControlScheme);
 
         discElement.SetActive(false);
+        this.prevT = Time.time;
+        this.stalePos = this.transform.position;
     }
 
     void Update()
     {
+        if (this.isStale()) {
+            endMenu.end(gameObject.name + " was not moving");
+        }
         // Handle normal movement input
         float verticalInput = 0f;
         float horizontalInput = 0f;
@@ -138,5 +147,28 @@ public class PlayerController : MonoBehaviour
         discElement.SetActive(true);
         isBoostAvailable = true; 
         boostRemainingTime = boostFullTime; // Reset boost time when a new disc is collected
+    }
+
+    private float prevT = 0;
+    private Vector3 stalePos;
+
+    private bool isStale()
+    {
+        float d = Vector3.Distance(this.transform.position, this.stalePos);
+        // based on our old code: https://github.com/schtrudl/Triplon/blob/main/src/scene/player.js
+        if ( d < 1.0 )
+        {
+            if (Time.time - this.prevT >= 3)
+            {
+                return true;
+            } 
+        }
+        else
+        {
+            this.prevT = Time.time;
+            this.stalePos = this.transform.position;
+        }
+
+        return false;
     }
 }
