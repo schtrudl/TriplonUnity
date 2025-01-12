@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Boost-related variables
     private bool isBoostAvailable = false; 
     private bool isBoostActive = false; 
-    private float boostRemainingTime = 0f; 
+    public float boostRemainingTime = 0f; 
     public float boostFullTime = 2f;
     public float boostSpeedAcceleration = 1f; 
 

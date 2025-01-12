@@ -382,6 +382,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fa44364d2971104db05187800c9493c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2994153217822525875}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fa44364d2971104db05187800c9493c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3112090748558352305}
     - targetCorrespondingSourceObject: {fileID: -782567006355618010, guid: 3fa44364d2971104db05187800c9493c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4851752539873575550}
@@ -450,6 +453,7 @@ MonoBehaviour:
   maxRotationSpeed: 70
   centreOfGravityOffset: -1
   discElement: {fileID: 873821448413902092}
+  boostRemainingTime: 0
   boostFullTime: 2
   boostSpeedAcceleration: 1
 --- !u!54 &702757144184790491
@@ -543,3 +547,17 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6494834176175745187}
+--- !u!114 &-3112090748558352305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705365751238943217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7bb32509267684e8b61ee46c642302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostSlider: {fileID: 0}
+  variableName: boost
