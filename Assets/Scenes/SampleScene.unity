@@ -2273,6 +2273,52 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5041744220116547993, guid: e63e276f9a0b7e140bb4c910d5fb6780, type: 3}
+--- !u!1 &990541236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 990541238}
+  - component: {fileID: 990541237}
+  m_Layer: 0
+  m_Name: Discs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &990541237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990541236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd24974a01f6404f814c6842456af53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  discPrefab: {fileID: 919132149155446097, guid: 84312d7cd98f6694abc69598473aabc2, type: 3}
+  totalCoins: 10
+--- !u!4 &990541238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990541236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1014109891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,9 +5365,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: boostBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: maxSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: boostSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: boostSpeedMultiplier
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 249114508587620228, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: tiltAngle
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2133647154962806280, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: _variant
+      value: 
+      objectReference: {fileID: 2100000, guid: 176bbb75f6e318946927062f17c36dc9, type: 2}
     - target: {fileID: 4851752539873575550, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -5332,7 +5398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216636764826286923, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6216636764826286923, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5370,6 +5436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player1
       objectReference: {fileID: 0}
+    - target: {fileID: 7446549279869190761, guid: 7dd349d4ecc542f45a3dd941df5d7ef0, type: 3}
+      propertyPath: _variant
+      value: 
+      objectReference: {fileID: 2100000, guid: 176bbb75f6e318946927062f17c36dc9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5390,3 +5460,4 @@ SceneRoots:
   - {fileID: 75426570}
   - {fileID: 1403133223}
   - {fileID: 1789442535}
+  - {fileID: 990541238}

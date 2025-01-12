@@ -23,10 +23,11 @@ Material:
   m_Name: disc Variant
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: -7674923503234155378, guid: 84312d7cd98f6694abc69598473aabc2, type: 3}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ModifiedSerializedProperties: 2
+  m_ValidKeywords:
+  - _EMISSION
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -42,5 +43,6 @@ Material:
     m_Floats: []
     m_Colors:
     - _Color: {r: 1, g: 0.94763047, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 0.9175721, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

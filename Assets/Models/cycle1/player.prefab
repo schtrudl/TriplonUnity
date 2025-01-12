@@ -386,6 +386,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4851752539873575550}
   m_SourcePrefab: {fileID: 100100000, guid: 3fa44364d2971104db05187800c9493c, type: 3}
+--- !u!1 &873821448413902092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6768691112492411308, guid: 3fa44364d2971104db05187800c9493c, type: 3}
+  m_PrefabInstance: {fileID: 5895026430569864352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2660664457144589190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -782567006355618010, guid: 3fa44364d2971104db05187800c9493c, type: 3}
@@ -436,6 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 25
+  boostSpeed: 40
   acceleration: 0.2
   deceleration: 3
   turnSpeed: 70
@@ -443,6 +449,9 @@ MonoBehaviour:
   tiltSpeed: 1.5
   maxRotationSpeed: 70
   centreOfGravityOffset: -1
+  discElement: {fileID: 873821448413902092}
+  boostFullTime: 2
+  boostSpeedAcceleration: 1
 --- !u!54 &702757144184790491
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -482,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7cd4d32c2df13448afaf81d29e57944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cycle: {fileID: 6705365751238943217}
+  _variant: {fileID: 0}
   _upL: {fileID: 2820327322664814903}
   _downL: {fileID: 7685298401683291599}
   _upR: {fileID: 6350765553957700573}
@@ -499,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851953df864d06248a4c51b9e5e7ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cycle: {fileID: 6705365751238943217}
+  _variant: {fileID: 0}
   _upL: {fileID: 2820327322664814903}
   _downL: {fileID: 7685298401683291599}
   _upR: {fileID: 6350765553957700573}

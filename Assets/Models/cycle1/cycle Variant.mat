@@ -10,14 +10,15 @@ Material:
   m_Name: cycle Variant
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: -7674923503234155378, guid: 3fa44364d2971104db05187800c9493c, type: 3}
-  m_ModifiedSerializedProperties: 10
+  m_ModifiedSerializedProperties: 26
   m_ValidKeywords:
   - _EMISSION
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHABLEND_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses:
@@ -29,9 +30,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _Cull: 0
+    - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Mode: 3
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.93893325, b: 0.11463595, a: 1}
+    - _BaseColor: {r: 0, g: 0.93893325, b: 0.11463501, a: 0.7}
+    - _Color: {r: 0, g: 0.93893325, b: 0.11463498, a: 0.7}
     - _EmissionColor: {r: 0, g: 7.4980392, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
