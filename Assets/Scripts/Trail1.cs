@@ -1,7 +1,7 @@
 /*  
  *  Trail2 deluje na nacin, da na podlagi prejsnih tock in novih ob dovolj velikem premiku generiramo TrailSegment,
  *  ki je detachan child cikla, ob vsakem dovolj velikem premiku se ustvari segment, kateremu dodamo mesh,
- *  s tockami in že vnaprej prirpavljenimi indexi, doda se box collider, kateremu se doda lastnots isTrigger sele kasneje.
+ *  s tockami in ze vnaprej prirpavljenimi indexi, doda se box collider, kateremu se doda lastnots isTrigger sele kasneje.
 */
 
 using System.Collections.Generic;

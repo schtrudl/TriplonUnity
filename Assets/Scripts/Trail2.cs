@@ -1,7 +1,7 @@
 /*
  *  Trail2 deluje na nacin, da na podlagi prejsnih tock in novih ob dovolj velikem premiku generiramo TrailSegment,
  *  ki je detachan child cikla, ob vsakem dovolj velikem premiku se ustvari segment, kateremu dodamo mesh,
- *  s tockami in �e vnaprej prirpavljenimi indexi, doda se mesh collider, ki se zaradi lepe oblike enostavno pretvori v convex
+ *  s tockami in ze vnaprej prirpavljenimi indexi, doda se mesh collider, ki se zaradi lepe oblike enostavno pretvori v convex
  */
 
 using TMPro;

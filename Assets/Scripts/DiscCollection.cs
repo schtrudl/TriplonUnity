@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class DiscCollection : MonoBehaviour
 {
-    [SerializeField] private float lifetime = 25f; // Lifetime in seconds
-    [SerializeField] private float moveHeight = 1.2f; // How high and low the disc moves
-    [SerializeField] private float moveSpeed = 0.9f; // Speed of up-down movement
-    [SerializeField] private float rotationSpeed = 80f; // Speed of rotation
+    [SerializeField] private float lifetime = 25f; 
+    [SerializeField] private float moveHeight = 1.2f; 
+    [SerializeField] private float moveSpeed = 0.9f; 
+    [SerializeField] private float rotationSpeed = 80f; 
 
     private Vector3 initialPosition;
     private float timeElapsed;
 
     private void Start()
     {
-        initialPosition = transform.position; // Store the initial position of the disc
+        initialPosition = transform.position; 
         Destroy(gameObject, lifetime); // Destroy the disc after the lifetime expires
     }
 
@@ -38,7 +38,7 @@ public class DiscCollection : MonoBehaviour
         if (playerController != null)
         {
             playerController.CollectDisc();
-            Destroy(gameObject); // Destroy the disc immediately upon collection
+            Destroy(gameObject); 
         }
     }
 }

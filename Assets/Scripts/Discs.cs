@@ -3,15 +3,14 @@ using UnityEngine;
 public class Discs : MonoBehaviour
 {
     [SerializeField]
-    private GameObject discPrefab; // Assign your disc prefab in the Inspector
+    private GameObject discPrefab;
 
-    public int totalDiscs = 10; // Number of discs to maintain
-    private Vector3 spawnAreaMin = new Vector3(-300, 1, -100); // Minimum spawn position (for x and y)
-    private Vector3 spawnAreaMax = new Vector3(300, 1, 100); // Maximum spawn position (for x and y)
-    private float topFloorY = 2.5f; // Fixed Y value for the top floor
-    private float bottomFloorY = -17.5f; // Fixed Y value for the bottom floor
-
-    private Vector3 discScale = new Vector3(1.3f, 1.3f, 1.3f); // Scale for all discs
+    public int totalDiscs = 10; 
+    public Vector3 spawnAreaMin = new Vector3(-300, 1, -100); 
+    public Vector3 spawnAreaMax = new Vector3(300, 1, 100); 
+    public float topFloorY = 2.5f; 
+    public float bottomFloorY = -17.5f;
+    public Vector3 discScale = new Vector3(1.3f, 1.3f, 1.3f); 
 
     void Start()
     {
@@ -49,7 +48,7 @@ public class Discs : MonoBehaviour
 
         // Add a Sphere Collider to the disc
         SphereCollider sphereCollider = disc.AddComponent<SphereCollider>();
-        sphereCollider.isTrigger = true; // Optional: Set to true if you want trigger behavior instead of collision
+        sphereCollider.isTrigger = true; 
         disc.AddComponent<DiscCollection>();
     }
 }

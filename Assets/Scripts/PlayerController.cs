@@ -25,11 +25,11 @@ public class PlayerController : MonoBehaviour
     private GameObject discElement;
 
     // Boost-related variables
-    private bool isBoostAvailable = false; // Is the boost available (after disc collection)?
-    private bool isBoostActive = false; // Is the boost currently active?
-    private float boostRemainingTime = 0f; // Total boost time available
+    private bool isBoostAvailable = false; 
+    private bool isBoostActive = false; 
+    private float boostRemainingTime = 0f; 
     public float boostFullTime = 2f;
-    public float boostSpeedAcceleration = 1f; // Speed multiplier during the boost
+    public float boostSpeedAcceleration = 1f; 
 
     void Start()
     {
@@ -125,20 +125,18 @@ public class PlayerController : MonoBehaviour
         rigidBody.MoveRotation(tiltRotation);
     }
 
-    // Deactivate the boost when it's depleted or no longer active
     private void DeactivateBoost()
     {
         isBoostActive = false;
-        isBoostAvailable = false; // Reset availability after use
-        boostRemainingTime = 0f; // Reset boost timer
-        discElement.SetActive(false); // Hide the disc indicator
+        isBoostAvailable = false; 
+        boostRemainingTime = 0f; 
+        discElement.SetActive(false);
     }
 
-    // Call this method when the player collects a disc
     public void CollectDisc()
     {
         discElement.SetActive(true);
-        isBoostAvailable = true; // Boost becomes available after collecting a disc
-        boostRemainingTime = 2f; // Reset boost time when a new disc is collected
+        isBoostAvailable = true; 
+        boostRemainingTime = boostFullTime; // Reset boost time when a new disc is collected
     }
 }
