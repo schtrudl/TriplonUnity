@@ -2314,8 +2314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd24974a01f6404f814c6842456af53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  discPrefab: {fileID: 919132149155446097, guid: 84312d7cd98f6694abc69598473aabc2, type: 3}
-  totalDiscs: 10
+  discPrefab: {fileID: 7115218148172893770, guid: 310d391859a539345aca92afa37b6622, type: 3}
+  totalDiscs: 20
   spawnAreaMin: {x: -300, y: 1, z: -100}
   spawnAreaMax: {x: 300, y: 1, z: 100}
   topFloorY: 2.5
